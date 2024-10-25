@@ -17,7 +17,9 @@ public class AllController {
     @GetMapping
     @ResponseBody
     public String getall() {
-        godValidator.validate(new Dummy());
+        godValidator.validate(new Dummy()); // 'OH NO THIS IS DUMMY' will be thrown
+        godValidator.validate("sdsds"); // 'OH NO THIS IS STRING' will be thrown
+        godValidator.validate(5); // 'OH NO THIS IS INTEGER' will be thrown
         return "wat";
     }
 }
